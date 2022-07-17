@@ -136,13 +136,21 @@ I also created a dashboard to display this information as well as further inform
 
 We can see from the dashboard I've created that there are there is quite a large number of requests coming from the unique URI of `VSI_Account_logon.php`. This seems oddly suspicous for a URI, particularly when the extention is using 'account logon'. 
 
-![Apache URI Count]()
+![Apache URI Count](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20unique%20uri%20count.PNG)
+
+We can also see this if we open it up in search by using the query `source="apache_attack_logs.txt" | stats count by uri`:
+
+![Apache URI Count 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20unique%20uri%20count%202.PNG)
 
 Thereby, I would create another firewall rule that blocks any HTTP requests coming from this URI. 
 
 As well as this, we can see there is a large number of these HTTP requests coming from the user agent `Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 2.0.50727987787; InfoPath.1)`. 
 
-![Apache user agent count]()
+![Apache user agent count](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20user%20agent%20count.PNG)
+
+We can also see this if we open it up in search by using the query `source="apache_attack_logs.txt" | stats count by useragent | sort -count`:
+
+![Apache user agent count 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20user%20agent%20count%202.PNG)
 
 From this information gathered, it looks like the attacker is possibly using an exploit only found in this version of Mozilla when sending a HTTP request. It is also possible that this is used in conjuction with the URI from above. 
 
