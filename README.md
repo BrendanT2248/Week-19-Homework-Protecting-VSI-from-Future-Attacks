@@ -93,6 +93,18 @@ Provide a "plain english" description of the rule.**
 
 - **Provide a screen shot of the geographic map that justifies why you created this rule.**
 
+Firstly, we need to gather some information and understand where all these HTTP requests are coming from. From there we can create a rule to block all incoming HTTP traffic from that location. 
+
+By entering `source="apache_attack_logs.txt"  | iplocation clientip  | search NOT Country IN ("United States") | top limit=10 Country`, we are able to see the top 10 countries that are sending HTTP traffic from their client IP address. This search also filters out the United States, as we do not need to know the count of this as this is the native country. 
+
+![Apache iplocation 1](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20iplocation%20count.PNG)
+
+We can see from the above image that the Ukraine is sending a suspicously high amount of HTTP traffic for an external country. The column chart below also displays this:
+
+![Apache iplocation 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20iplocation%20count%202.png)
+
+
+
 ### Question 2
 
 - **VSI has insider information that JobeCorp will launch the same webserver attack but use a different IP each time in order to avoid being stopped by the rule you just created.**
