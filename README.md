@@ -133,3 +133,17 @@ I also created a dashboard to display this information as well as further inform
 
   - **Conceive of two more rules in "plain english".**
   - **Hint: Look for other fields that indicate the attacker.**
+
+We can see from the dashboard I've created that there are there is quite a large number of requests coming from the unique URI of `VSI_Account_logon.php`. This seems oddly suspicous for a URI, particularly when the extention is using 'account logon'. 
+
+![Apache URI Count]()
+
+Thereby, I would create another firewall rule that blocks any HTTP requests coming from this URI. 
+
+As well as this, we can see there is a large number of these HTTP requests coming from the user agent `Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 2.0.50727987787; InfoPath.1)`. 
+
+![Apache user agent count]()
+
+From this information gathered, it looks like the attacker is possibly using an exploit only found in this version of Mozilla when sending a HTTP request. It is also possible that this is used in conjuction with the URI from above. 
+
+I would therefore create a rule that blocks all incoming HTTP requests from this user agent globally. 
