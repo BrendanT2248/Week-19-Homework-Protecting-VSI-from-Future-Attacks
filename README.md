@@ -8,6 +8,14 @@ _You are tasked with using your findings from the Master of SOC activity to answ
 ## System Requirements
 _You will be using the Splunk app located in the Ubuntu VM._
 
+## Logs
+_Use the same log files you used during the Master of SOC activity:_
+
+- [Windows Logs](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Log%20Files/windows_server_logs.csv)
+- [Windows Attack Logs](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Log%20Files/windows_server_attack_logs.csv)
+- [Apache Webserver Logs](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Log%20Files/apache_logs.txt)
+- [Apache Webserver Attack Logs](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Log%20Files/apache_attack_logs.txt)
+
 ## Part 1: Windows Server Attack
 _Note: This is a public-facing windows server that VSI employees access._
 
