@@ -54,7 +54,9 @@ I also created a dashboard to reflect the count of signatures and users affected
 
 - **Based on the attack signatures, what mitigations would you recommend to protect each user account? Provide global mitigations that the whole company can use and individual mitigations that are specific to each user.**
 
+**Global Mitigations**
 
+**Individual Mitigations**
 
 ### Question 2
 
