@@ -56,13 +56,29 @@ I also created a dashboard to reflect the count of signatures and users affected
 
 **Global Mitigations**
 
+As this is a brute force attack, there are several global mitigation strategies that could be put in place here:
+
+- Keep all systems up to date with the latest security updates and patches. This is important to combat against the latest cyber threats.
+- Have endpoint protection installed on all machines to detect any potential malicous files users could of accidentally downloaded.
+- Develop a password policy that is strong. This can include the user needing to change their password every 3 months, having a long minimum character limit such as 10 and the password required needs to include an upper-case, lower-case, number and symbol.
+- A firewall to filter out users accidentally navigating to potentially malicious sites. 
+- Enable automatic scanning of files when received externally either through email or FTP
+
 **Individual Mitigations**
+
+- Limit account lockouts for individual accounts for up to 3 hours if there is up to 10 incorrect logins within the hour. If attempts continue, escalte time as needed.
+- Educate employees on the dangers of cyber threats, such as simulated phishing scenarios, the importance of user account security and other cyber awareness training sessions. 
+- Enforce two-factor authentication for all individuals for work accounts. Ensure this is enforced by going through the process with each individual user and make sure they understand what two-factor is and not to accept any notifcation if it is not them attempting a log in. 
 
 ### Question 2
 
 - **VSI has insider information that JobeCorp attempted to target users by sending "Bad Logins" to lock out every user.
 What sort of mitigation could you use to protect against this?**
 
+- Ensure two-factor authentication is set up for every user. As well as this, back it up with a phone number to increase user account security. 
+- Ensure the password policy is in place and effective. Complexity levels are met as well as the user needing to change their password every 3 months. 
+- Ensure account lockouts are set up - if an account attempts a login up to 10 times in the hour unsuccssfully.
+- To protect against users accidentally sending their password out on the Internet we can encrypt cookies and enable the 'do not remember' password function within the browser. 
 
 ## Part 2: Apache Webserver Attack:
 
