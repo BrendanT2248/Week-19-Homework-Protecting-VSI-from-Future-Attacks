@@ -23,6 +23,35 @@ _Note: This is a public-facing windows server that VSI employees access._
 
 - **Several users were impacted during the attack on March 25th.**
 
+From the 'Windows Server Attack Logs', we can see there were numerous attempts of attempting to reset an accounts password and 
+accounts being locked out. 
+
+We know this if we filter for the top signatures recorded in the log files by entering the query `source="windows_server_attack_logs.csv" | top limit=20 signature`
+
+![Windows signatures count](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/windows%20attack%20signatures%20count.PNG)
+
+We can then drill into these signature attempts and when they occurred throughout March 25th. 
+
+By entering `source="windows_server_attack_logs.csv" signature="An attempt was made to reset an accounts password"` we can see a timeline hour by hour and at around 9am there were around 1258 attempts made to reset a user accounts password. 
+
+![Windows reset passwords count](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/windows%20attack%20signature%20reset%20password%20attempts.png)
+
+There were also 805 user account lockouts that occurred at 1am, 8 hours previous to the attempts to reset the accounts passwords by entering `source="windows_server_attack_logs.csv" signature="A user account was locked out"`
+
+![Windows User Locket count](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/windows%20user%20lockout%20count.png)
+
+We also want to find out which users are affected. By entering `source="windows_server_attack_logs.csv"| top limit=20 user`, we are able to see the count for users affected by these events. 
+
+![Windows user event count](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/windows%20attack%20user%20count.PNG)
+
+As we can see `user_k` and `user_a` have the highest counts of 2118 and 1878 over this period of time. However, there are also several other accounts that do have quite a high count. 
+
+I also created a dashboard to reflect the count of signatures and users affected. See below: 
+
+![Windows Dash 1](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/windows%20attack%20logs%20dash%201.PNG)
+
+![Windows Dash 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/windows%20attack%20logs%20dash%202.PNG)
+
 - **Based on the attack signatures, what mitigations would you recommend to protect each user account? Provide global mitigations that the whole company can use and individual mitigations that are specific to each user.**
 
 
