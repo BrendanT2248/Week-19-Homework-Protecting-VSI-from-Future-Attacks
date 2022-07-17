@@ -75,6 +75,8 @@ As this is a brute force attack, there are several global mitigation strategies 
 - **VSI has insider information that JobeCorp attempted to target users by sending "Bad Logins" to lock out every user.
 What sort of mitigation could you use to protect against this?**
 
+I would implement the following mitigation strategies:
+
 - Ensure two-factor authentication is set up for every user. As well as this, back it up with a phone number to increase user account security. 
 - Ensure the password policy is in place and effective. Complexity levels are met as well as the user needing to change their password every 3 months. 
 - Ensure account lockouts are set up - if an account attempts a login up to 10 times in the hour unsuccssfully.
