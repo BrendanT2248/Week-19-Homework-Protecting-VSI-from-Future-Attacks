@@ -99,11 +99,31 @@ By entering `source="apache_attack_logs.txt"  | iplocation clientip  | search NO
 
 ![Apache iplocation 1](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20iplocation%20count.PNG)
 
-We can see from the above image that the Ukraine is sending a suspicously high amount of HTTP traffic for an external country. The column chart below also displays this:
+We can see from the above image that the Ukraine is sending a suspicously high amount of HTTP traffic for an external country. There is a total count of 877 requests being sent from Ukraine, significantly higher than the next external country of Sweden with 198. The column chart below also displays this:
 
 ![Apache iplocation 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20iplocation%20count%202.png)
 
+We can also see that alot of these requests came at a particular time. This could be an indicator of some sort of attack, since multiple HTTP requests are being sent in a short amount of time from one specific country - the Ukraine.
 
+![Apache iplocation 3](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20iplocation%20count%204.png)
+
+To gain a visual view of this, we can look at these statitics on a visual map, by using the query `source="apache_attack_logs.txt"  | iplocation clientip  | search NOT Country IN ("United States") | geostats count`
+
+![Apache geostats 1](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20geostats%201.png)
+
+We can zoom in further on the map:
+
+![Apache geostats 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20geostats%202.png)
+
+From this, I believe a solid firewall rule would be to block all incoming HTTP traffic wherbey the source IP is from the Ukraine.
+
+I also created a dashboard to display this information as well as further information, such as most common HTTP methods over time and different user agent count:
+
+![Apache dash 1](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20dash%201.PNG)
+
+![Apache dash 2](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20dash%202.PNG)
+
+![Apache dash 3](https://github.com/BrendanT2248/Week-19-Homework-Protecting-VSI-from-Future-Attacks/blob/main/Images/apache%20dash%203.PNG)
 
 ### Question 2
 
@@ -113,12 +133,3 @@ We can see from the above image that the Ukraine is sending a suspicously high a
 
   - **Conceive of two more rules in "plain english".**
   - **Hint: Look for other fields that indicate the attacker.**
-
-
-
-
-Guidelines for your Submission:
-In a word document, provide the following:
-
-Answers for all questions.
-Screenshots where indicated
